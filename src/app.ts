@@ -9,6 +9,8 @@ import routes from './routes';
 import path from 'path';
 
 const app = express();
+app.set("trust proxy", true); // 👈 Esto habilita el uso de X-Forwarded-For
+
 
 // Parsear JSON
 app.use(express.json());
