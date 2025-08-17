@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("user") // <-- nuevo campo role
+  createdAt DateTime @default(now())
+
+  cart   CartItem[]
+  orders Order[]
+}
+
+model Product {
+  id          Int            @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  createdAt   DateTime       @default(now())
+  category    Category       @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+  images      ProductImage[]
+  cartItems   CartItem[]
+  orderItems  OrderItem[]
+}
+
+model Category {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  products Product[]
+}
+
+model ProductImage {
+  id        Int      @id @default(autoincrement())
+  url       String
+  product   Product  @relation(fields: [productId], references: [id])
+  productId Int
+  createdAt DateTime @default(now())
+}
+
+model CartItem {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  product   Product  @relation(fields: [productId], references: [id])
+  productId Int
+  quantity  Int      @default(1)
+  selected  Boolean  @default(true) // ✅ Nuevo campo agregado
+  createdAt DateTime @default(now())
+}
+
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  total     Float
+  status    String   @default("pendiente")
+  createdAt DateTime @default(now())
+
+  items   OrderItem[]
+  payment Payment? // 👈 Campo inverso agregado (opcional)
+}
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  order     Order   @relation(fields: [orderId], references: [id])
+  orderId   Int
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
+  quantity  Int
+  price     Float
+}
+
+model Payment {
+  id      Int      @id @default(autoincrement())
+  order   Order    @relation(fields: [orderId], references: [id])
+  orderId Int      @unique
+  method  String
+  amount  Float
+  paidAt  DateTime @default(now())
+}
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+        

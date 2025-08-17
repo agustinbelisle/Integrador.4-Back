@@ -1,0 +1,58 @@
+// src/app.ts
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import { apiLimiter } from './middlewares/security/rateLimiter';
+import { sanitizeInput } from './middlewares/security/sanitize';
+import { errorHandler } from './middlewares/security/handleErrors';
+import routes from './routes';
+import path from 'path';
+
+const app = express();
+
+// Parsear JSON
+app.use(express.json());
+
+// Seguridad y CORS
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || origin.startsWith('http://localhost')) {
+        callback(null, true);
+      } else {
+        callback(new Error('No permitido por CORS'));
+      }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
+
+// Helmet para imágenes cross-origin
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+  })
+);
+
+app.use(sanitizeInput);
+
+// Limitador de peticiones para todas las rutas /api
+app.use('/api', apiLimiter);
+
+// Ruta raíz
+app.get('/', (_req, res) => {
+  res.json({ message: 'API funcionando 🚀' });
+});
+
+// Monta todas las rutas internas bajo /api
+app.use('/api', routes);
+
+// Servir imágenes estáticas
+app.use('/images', express.static(path.join(__dirname, '..', 'public', 'images')));
+
+// Manejador global de errores
+app.use(errorHandler);
+
+export default app;
