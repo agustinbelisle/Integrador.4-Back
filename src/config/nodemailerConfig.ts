@@ -1,18 +1,19 @@
 import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: Number(process.env.EMAIL_PORT),
-  secure: process.env.EMAIL_SECURE === 'true',
+  host: 'sandbox.smtp.mailtrap.io',
+  port: 587,
+  secure: false,
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.MAILTRAP_USER,
+    pass: process.env.MAILTRAP_PASS,
   },
-  requireTLS: true, // 👈 Asegura conexión segura con STARTTLS
+  requireTLS: true,
   tls: {
-    rejectUnauthorized: false, // Solo en desarrollo
+    rejectUnauthorized: false,
   },
 });
+
 
 transporter.verify()
   .then(() => console.log('✅ Nodemailer conectado correctamente'))
