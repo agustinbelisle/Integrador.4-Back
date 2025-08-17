@@ -16,13 +16,17 @@ app.use(express.json());
 // Seguridad y CORS
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || origin.startsWith('http://localhost')) {
-        callback(null, true);
-      } else {
-        callback(new Error('No permitido por CORS'));
-      }
-    },
+origin: (origin, callback) => {
+  const allowedOrigins = [
+    'http://localhost:5173',
+    'https://integrador-4-front.vercel.app'
+  ];
+  if (!origin || allowedOrigins.includes(origin)) {
+    callback(null, true);
+  } else {
+    callback(new Error('No permitido por CORS'));
+  }
+},
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
