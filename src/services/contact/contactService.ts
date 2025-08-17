@@ -24,11 +24,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-
 const mailOptions = {
-  from: `"Mi Tienda" <${process.env.MAILTRAP_USER}>`, // Evita bloqueos por Gmail
-  to: process.env.EMAIL_TO || process.env.MAILTRAP_USER, // Donde recibís el mensaje
-  replyTo: `${name} <${email}>`, // Permite responder al usuario
+  from: `"Mi Tienda" <${process.env.MAILTRAP_USER}>`,
+  to: process.env.EMAIL_TO || process.env.MAILTRAP_USER,
+  replyTo: `${name} <${email}>`,
   subject: "Nuevo mensaje de contacto",
   html: `
     <h3>Nuevo mensaje recibido desde el formulario</h3>
@@ -37,6 +36,7 @@ const mailOptions = {
     <p><strong>Mensaje:</strong><br/>${message}</p>
   `,
 };
+
 
 
     const info = await transporter.sendMail(mailOptions);
