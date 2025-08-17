@@ -16,6 +16,7 @@ app.use(express.json());
 // Seguridad y CORS
 app.use(
   cors({
+    
 origin: (origin, callback) => {
   const allowedOrigins = [
     'http://localhost:5173',
@@ -24,7 +25,8 @@ origin: (origin, callback) => {
   if (!origin || allowedOrigins.includes(origin)) {
     callback(null, true);
   } else {
-    callback(new Error('No permitido por CORS'));
+    console.warn(`Origen bloqueado por CORS: ${origin}`);
+    callback(null, false); // No lanza error, solo bloquea
   }
 },
     credentials: true,
