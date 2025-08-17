@@ -47,7 +47,8 @@ app.use(
 app.use(sanitizeInput);
 
 // Limitador de peticiones para todas las rutas /api
-app.use('/api', apiLimiter);
+// app.use('/api', apiLimiter);
+
 
 // Ruta raíz
 app.get('/', (_req, res) => {
