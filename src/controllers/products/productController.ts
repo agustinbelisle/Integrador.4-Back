@@ -25,9 +25,11 @@ export const getAllProducts = async (req: Request, res: Response): Promise<Respo
       pageCount: Math.ceil(total / limit),
       products,
     });
-  } catch (error) {
-    return res.status(500).json({ message: 'Error al obtener productos' });
-  }
+} catch (error) {
+  console.error("Error en getAllProducts:", error);
+  return res.status(500).json({ message: 'Error al obtener productos' });
+}
+
 };
 
 
