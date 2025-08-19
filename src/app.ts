@@ -5,7 +5,7 @@ import helmet from 'helmet';
 import { apiLimiter } from './middlewares/security/rateLimiter';
 import { sanitizeInput } from './middlewares/security/sanitize';
 import { errorHandler } from './middlewares/security/handleErrors';
-import routes from './routes';
+import routes from './routes/index';
 import path from 'path';
 
 const app = express();
@@ -28,7 +28,7 @@ origin: (origin, callback) => {
     callback(null, true);
   } else {
     console.warn(`Origen bloqueado por CORS: ${origin}`);
-    callback(null, false); // No lanza error, solo bloquea
+    callback(new Error('No permitido por CORS')); // 👈 lanza error visible
   }
 },
     credentials: true,
