@@ -12,7 +12,7 @@ model User {
   name      String
   email     String   @unique
   password  String
-  role      String   @default("user") // <-- nuevo campo role
+  role      String   @default("user")
   createdAt DateTime @default(now())
 
   cart   CartItem[]
@@ -53,10 +53,9 @@ model CartItem {
   product   Product  @relation(fields: [productId], references: [id])
   productId Int
   quantity  Int      @default(1)
-  selected  Boolean  @default(true) // ✅ Nuevo campo agregado
+  selected  Boolean  @default(true)
   createdAt DateTime @default(now())
 }
-
 
 model Order {
   id        Int      @id @default(autoincrement())
@@ -67,7 +66,7 @@ model Order {
   createdAt DateTime @default(now())
 
   items   OrderItem[]
-  payment Payment? // 👈 Campo inverso agregado (opcional)
+  payment Payment?
 }
 
 model OrderItem {
@@ -96,5 +95,3 @@ model ContactMessage {
   message   String
   createdAt DateTime @default(now())
 }
-
-        
