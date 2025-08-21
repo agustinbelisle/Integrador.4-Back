@@ -9,36 +9,27 @@ import routes from './routes/index';
 import path from 'path';
 
 const app = express();
-app.set("trust proxy", true); // 👈 Esto habilita el uso de X-Forwarded-For
+app.set("trust proxy", true); // 👈 Habilita X-Forwarded-For en Render
 
 // Parsear JSON
 app.use(express.json());
 
-// Seguridad y CORS
-app.use(
-  cors({
-    origin: (origin, callback) => {
+// --- Seguridad y CORS ---
 const allowedOrigins = [
   'http://localhost:5173',
   /\.vercel\.app$/, // permite cualquier subdominio de Vercel
   'https://integrador-4-front.vercel.app'
 ];
 
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.some(o =>
-      typeof o === 'string' ? o === origin : o.test(origin)
-    )) {
-      callback(null, true);
-    } else {
-      console.warn(`Origen bloqueado por CORS: ${origin}`);
-      callback(new Error('No permitido por CORS'));
-    }
-  },
-  credentials: true,
-}));
-
-      if (!origin || allowedOrigins.includes(origin)) {
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (
+        !origin ||
+        allowedOrigins.some((o) =>
+          typeof o === 'string' ? o === origin : o.test(origin)
+        )
+      ) {
         callback(null, true);
       } else {
         console.warn(`Origen bloqueado por CORS: ${origin}`);
@@ -58,6 +49,7 @@ app.use(
   })
 );
 
+// Sanitizar inputs
 app.use(sanitizeInput);
 
 // Limitador de peticiones para todas las rutas /api
