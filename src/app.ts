@@ -18,11 +18,26 @@ app.use(express.json());
 app.use(
   cors({
     origin: (origin, callback) => {
-      const allowedOrigins = [
-        'http://localhost:5173',
-        'https://integrador-4-front.vercel.app',
-        'https://integrador-4-front-h22pvcmmy-agustinbelisles-projects.vercel.app' // 👈 nuevo dominio agregado
-      ];
+const allowedOrigins = [
+  'http://localhost:5173',
+  /\.vercel\.app$/, // permite cualquier subdominio de Vercel
+  'https://integrador-4-front.vercel.app'
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.some(o =>
+      typeof o === 'string' ? o === origin : o.test(origin)
+    )) {
+      callback(null, true);
+    } else {
+      console.warn(`Origen bloqueado por CORS: ${origin}`);
+      callback(new Error('No permitido por CORS'));
+    }
+  },
+  credentials: true,
+}));
+
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
