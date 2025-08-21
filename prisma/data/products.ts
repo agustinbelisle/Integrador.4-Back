@@ -3,9 +3,9 @@ export const products = [
         name: "Lenovo V15 G4 AMN",
         price: 1009999,
         images: [
-            { id: 1, url: "http://localhost:5000/images/lenovo.webp" },
-            { id: 2, url: "http://localhost:5000/images/lenovo1.webp" },
-            { id: 3, url: "http://localhost:5000/images/lenovo2.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/lenovo.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/lenovo1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/lenovo2.webp" }
         ],
         categoryName: "Notebooks",
         description:
@@ -15,9 +15,9 @@ export const products = [
         name: "HP Pavilion Plus 14",
         price: 2064149,
         images: [
-            { id: 1, url: "http://localhost:5000/images/hp0.webp" },
-            { id: 2, url: "http://localhost:5000/images/hp1.webp" },
-            { id: 3, url: "http://localhost:5000/images/hp2.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/hp0.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/hp1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/hp2.webp" }
         ],
         categoryName: "Notebooks",
         description:
@@ -27,9 +27,9 @@ export const products = [
         name: "MacBook Air M2",
         price: 1867499,
         images: [
-            { id: 1, url: "http://localhost:5000/images/macbook.webp" },
-            { id: 2, url: "http://localhost:5000/images/macbook1.webp" },
-            { id: 3, url: "http://localhost:5000/images/macbook2.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/macbook.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/macbook1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/macbook2.webp" }
         ],
         categoryName: "Notebooks",
         description:
@@ -39,8 +39,8 @@ export const products = [
         name: "PlayStation 5",
         price: 1259999,
         images: [
-            { id: 1, url: "http://localhost:5000/images/ps5.webp" },
-            { id: 2, url: "http://localhost:5000/images/ps5a.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/ps5.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/ps5a.webp" }
         ],
         categoryName: "Gaming",
         description:
@@ -50,8 +50,8 @@ export const products = [
         name: "Xbox Series X",
         price: 1172916,
         images: [
-            { id: 1, url: "http://localhost:5000/images/xbox.webp" },
-            { id: 2, url: "http://localhost:5000/images/xbox1.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/xbox.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/xbox1.webp" }
         ],
         categoryName: "Gaming",
         description:
@@ -61,9 +61,9 @@ export const products = [
         name: "Nintendo Switch OLED",
         price: 781999,
         images: [
-            { id: 1, url: "http://localhost:5000/images/switch.webp" },
-            { id: 2, url: "http://localhost:5000/images/switch1.webp" },
-            { id: 3, url: "http://localhost:5000/images/switch2.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/switch.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/switch1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/switch2.webp" }
         ],
         categoryName: "Gaming",
         description:
@@ -73,10 +73,10 @@ export const products = [
         name: "SmartTV Samsung 50'' 4K",
         price: 827818,
         images: [
-            { id: 1, url: "http://localhost:5000/images/samsung1.webp" },
-            { id: 2, url: "http://localhost:5000/images/samsung2.webp" },
-            { id: 3, url: "http://localhost:5000/images/samsung3.webp" },
-            { id: 4, url: "http://localhost:5000/images/samsung4.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/samsung1.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/samsung2.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/samsung3.webp" },
+            { id: 4, url: "https://integrador-4-back.onrender.com/images/samsung4.webp" }
         ],
         categoryName: "Hogar",
         description:
@@ -86,11 +86,11 @@ export const products = [
         name: "SmartTV LG OLED 65''",
         price: 3443999,
         images: [
-            { id: 1, url: "http://localhost:5000/images/lg0.webp" },
-            { id: 2, url: "http://localhost:5000/images/lg1.webp" },
-            { id: 3, url: "http://localhost:5000/images/lg2.webp" },
-            { id: 4, url: "http://localhost:5000/images/lg3.webp" },
-            { id: 5, url: "http://localhost:5000/images/lg4.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/lg0.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/lg1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/lg2.webp" },
+            { id: 4, url: "https://integrador-4-back.onrender.com/images/lg3.webp" },
+            { id: 5, url: "https://integrador-4-back.onrender.com/images/lg4.webp" }
         ],
         categoryName: "Hogar",
         description:
@@ -100,9 +100,9 @@ export const products = [
         name: "SmartTV Sony Bravia XR 55''",
         price: 3899999,
         images: [
-            { id: 1, url: "http://localhost:5000/images/sony_tv.webp" },
-            { id: 2, url: "http://localhost:5000/images/sony_tv1.webp" },
-            { id: 3, url: "http://localhost:5000/images/sony_tv2.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/sony_tv.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/sony_tv1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/sony_tv2.webp" }
         ],
         categoryName: "Hogar",
         description:
@@ -112,9 +112,9 @@ export const products = [
         name: "Samsung Galaxy S23 Ultra",
         price: 1755999,
         images: [
-            { id: 1, url: "http://localhost:5000/images/s23.webp" },
-            { id: 2, url: "http://localhost:5000/images/s23a.webp" },
-            { id: 3, url: "http://localhost:5000/images/s23b.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/s23.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/s23a.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/s23b.webp" }
         ],
         categoryName: "Smartphones",
         description:
@@ -124,9 +124,9 @@ export const products = [
         name: "iPhone 14",
         price: 1365418,
         images: [
-            { id: 1, url: "http://localhost:5000/images/iphone.webp" },
-            { id: 2, url: "http://localhost:5000/images/iphone1.webp" },
-            { id: 3, url: "http://localhost:5000/images/iphone2.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/iphone.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/iphone1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/iphone2.webp" }
         ],
         categoryName: "Smartphones",
         description:
@@ -136,9 +136,9 @@ export const products = [
         name: "Google Pixel 8 Pro",
         price: 1099999,
         images: [
-            { id: 1, url: "http://localhost:5000/images/pixel.webp" },
-            { id: 2, url: "http://localhost:5000/images/pixel1.webp" },
-            { id: 3, url: "http://localhost:5000/images/pixel2.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/pixel.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/pixel1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/pixel2.webp" }
         ],
         categoryName: "Smartphones",
         description:
@@ -148,10 +148,10 @@ export const products = [
         name: "Apple Watch Series 9",
         price: 672200,
         images: [
-            { id: 1, url: "http://localhost:5000/images/apple0.webp" },
-            { id: 2, url: "http://localhost:5000/images/apple1.webp" },
-            { id: 3, url: "http://localhost:5000/images/apple2.webp" },
-            { id: 4, url: "http://localhost:5000/images/apple3.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/apple0.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/apple1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/apple2.webp" },
+            { id: 4, url: "https://integrador-4-back.onrender.com/images/apple3.webp" }
         ],
         categoryName: "Accesorios",
         description:
@@ -161,9 +161,9 @@ export const products = [
         name: "Samsung Galaxy Watch 5",
         price: 451706,
         images: [
-            { id: 1, url: "http://localhost:5000/images/watch1.webp" },
-            { id: 2, url: "http://localhost:5000/images/watch2.webp" },
-            { id: 3, url: "http://localhost:5000/images/watch3.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/watch1.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/watch2.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/watch3.webp" }
         ],
         categoryName: "Accesorios",
         description:
@@ -173,9 +173,9 @@ export const products = [
         name: "Fitbit Charge 6",
         price: 349029,
         images: [
-            { id: 1, url: "http://localhost:5000/images/fitbit.webp" },
-            { id: 2, url: "http://localhost:5000/images/fitbit1.webp" },
-            { id: 3, url: "http://localhost:5000/images/fitbit2.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/fitbit.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/fitbit1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/fitbit2.webp" }
         ],
         categoryName: "Accesorios",
         description:
@@ -185,11 +185,11 @@ export const products = [
         name: "Auriculares Bluetooth Sony WH-1000XM5",
         price: 150000,
         images: [
-            { id: 1, url: "http://localhost:5000/images/sony1.webp" },
-            { id: 2, url: "http://localhost:5000/images/sony2.webp" },
-            { id: 3, url: "http://localhost:5000/images/sony3.webp" },
-            { id: 4, url: "http://localhost:5000/images/sony4.webp" },
-            { id: 5, url: "http://localhost:5000/images/sony5.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/sony1.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/sony2.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/sony3.webp" },
+            { id: 4, url: "https://integrador-4-back.onrender.com/images/sony4.webp" },
+            { id: 5, url: "https://integrador-4-back.onrender.com/images/sony5.webp" }
         ],
         categoryName: "Audio",
         description: "Cancelación de ruido avanzada, sonido de alta resolución, batería de hasta 30 horas y conectividad Bluetooth 5.2."
@@ -198,10 +198,10 @@ export const products = [
         name: "Parlante Portátil JBL Boombox 3",
         price: 220000,
         images: [
-            { id: 1, url: "http://localhost:5000/images/jbl.webp" },
-            { id: 2, url: "http://localhost:5000/images/jbl1.webp" },
-            { id: 3, url: "http://localhost:5000/images/jbl2.webp" },
-            { id: 4, url: "http://localhost:5000/images/jbl3.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/jbl.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/jbl1.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/jbl2.webp" },
+            { id: 4, url: "https://integrador-4-back.onrender.com/images/jbl3.webp" }
         ],
         categoryName: "Audio",
         description: "Altavoz con sonido potente JBL Original Pro, conectividad Wi-Fi y Bluetooth, batería de 24 horas y resistencia al agua."
@@ -210,9 +210,9 @@ export const products = [
         name: "Barra de Sonido Samsung HW-Q800B",
         price: 300000,
         images: [
-            { id: 1, url: "http://localhost:5000/images/barra.webp" },
-            { id: 2, url: "http://localhost:5000/images/barra0.webp" },
-            { id: 3, url: "http://localhost:5000/images/barra1.webp" }
+            { id: 1, url: "https://integrador-4-back.onrender.com/images/barra.webp" },
+            { id: 2, url: "https://integrador-4-back.onrender.com/images/barra0.webp" },
+            { id: 3, url: "https://integrador-4-back.onrender.com/images/barra1.webp" }
         ],
         categoryName: "Audio",
         description: "Sonido envolvente 5.1.2 canales, Dolby Atmos inalámbrico, tecnología Q-Symphony y subwoofer inalámbrico."
