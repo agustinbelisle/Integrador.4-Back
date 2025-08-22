@@ -6,7 +6,9 @@ import { products } from './data/products';
 const prisma = new PrismaClient();
 
 async function main() {
-  // 👉 Categorías (crear si no existen)
+  console.log('🚀 Iniciando seed...');
+
+  // 👉 Categorías
   const categoryNames = [
     'Notebooks',
     'Smartphones',
@@ -23,6 +25,7 @@ async function main() {
       create: { name },
     });
   }
+  console.log('📁 Categorías listas');
 
   // 👉 Usuarios
   const users = [
@@ -58,44 +61,49 @@ async function main() {
       });
     }
   }
+  console.log('👤 Usuarios creados');
 
-// 👉 Productos con imágenes
-for (const product of products) {
-  const category = await prisma.category.findUnique({
-    where: { name: product.categoryName },
-  });
+  // 👉 Productos con imágenes
+  for (const product of products) {
+    const category = await prisma.category.findUnique({
+      where: { name: product.categoryName },
+    });
 
-  if (!category) {
-    console.warn(`⚠️ Categoría no encontrada: ${product.categoryName}`);
-    continue;
+    if (!category) {
+      console.warn(`⚠️ Categoría no encontrada: ${product.categoryName}`);
+      continue;
+    }
+
+    const createdProduct = await prisma.product.create({
+      data: {
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        categoryId: category.id,
+      },
+    });
+
+    // Validar y limpiar URLs
+    const imageData = product.images
+      .filter((img) => img.url && typeof img.url === 'string')
+      .map((img) => ({
+        url: img.url.replace('http://localhost:5000', 'https://integrador-4-back.onrender.com'),
+        productId: createdProduct.id,
+      }));
+
+    try {
+      await prisma.productImage.createMany({ data: imageData });
+    } catch (err) {
+      console.error(`❌ Error al insertar imágenes para ${product.name}:`, err);
+    }
   }
-
-  const createdProduct = await prisma.product.create({
-    data: {
-      name: product.name,
-      description: product.description,
-      price: product.price,
-      categoryId: category.id,
-    },
-  });
-
-  const imageData = product.images.map((img) => ({
-    url: img.url, // 👈 Acceder correctamente al campo `url`
-    productId: createdProduct.id,
-  }));
-
-  await prisma.productImage.createMany({
-    data: imageData,
-  });
-}
-
 
   console.log('✅ Seed completado con categorías, usuarios, productos e imágenes');
 }
 
 main()
   .catch((e) => {
-    console.error(e);
+    console.error('🔥 Error en el seed:', e);
     process.exit(1);
   })
   .finally(() => prisma.$disconnect());
