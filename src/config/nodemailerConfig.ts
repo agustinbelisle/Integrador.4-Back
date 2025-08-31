@@ -1,12 +1,12 @@
 import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
-  host: 'sandbox.smtp.mailtrap.io',
-  port: 587,
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT),
   secure: false,
   auth: {
-    user: process.env.MAILTRAP_USER,
-    pass: process.env.MAILTRAP_PASS,
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
   requireTLS: true,
   tls: {
@@ -14,9 +14,9 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-
 transporter.verify()
   .then(() => console.log('✅ Nodemailer conectado correctamente'))
   .catch((err) => console.error('❌ Error de conexión Nodemailer:', err));
 
 export default transporter;
+
