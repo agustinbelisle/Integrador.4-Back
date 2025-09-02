@@ -29,7 +29,12 @@ export const createOrderFromCart = async (userId: number) => {
       data: {
         userId,
         total,
-        items: { create: orderItemsData }, // order.items según schema Prisma
+        items: { create: orderItemsData },
+      },
+      include: {
+        items: {
+          include: { product: true },
+        },
       },
     });
 
@@ -76,8 +81,6 @@ export const updateOrderStatus = (id: number, status: string) => {
 };
 
 export const deleteOrder = async (orderId: number) => {
-  // Primero eliminar items relacionados para evitar FK constraints
   await prisma.orderItem.deleteMany({ where: { orderId } });
-  // Luego eliminar la orden
   return prisma.order.delete({ where: { id: orderId } });
 };

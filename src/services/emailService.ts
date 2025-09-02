@@ -1,4 +1,3 @@
-// src/services/emailService.ts
 import transporter from '../config/nodemailerConfig';
 import {
   registrationEmailTemplate,
@@ -25,15 +24,16 @@ export const sendRegistrationEmail = async (to: string, name: string): Promise<v
 export const sendOrderConfirmationEmail = async (
   to: string,
   orderId: number,
-  total: number
+  total: number,
+  items: any[] // ⚡ puedes tipar con Prisma.OrderItem si querés
 ): Promise<void> => {
-  if (!to || !orderId || !total) return;
+  if (!to || !orderId || !total || !items) return;
 
   const mailOptions = {
     from: `"Mi Tienda" <${process.env.EMAIL_USER}>`,
     to,
     subject: 'Confirmación de tu pedido',
-    html: orderEmailTemplate(orderId, total),
+    html: orderEmailTemplate(orderId, total, items),
   };
 
   try {

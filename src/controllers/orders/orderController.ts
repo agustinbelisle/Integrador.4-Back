@@ -15,7 +15,12 @@ export const createOrder = async (req: Request, res: Response): Promise<Response
 
     if (req.user?.email) {
       console.log("Enviando email a:", req.user.email);
-      await sendOrderConfirmationEmail(req.user.email, order.id, order.total);
+      await sendOrderConfirmationEmail(
+        req.user.email,
+        order.id,
+        order.total,
+        order.items // 👈 ahora pasamos los productos
+      );
     }
 
     return res.status(201).json(order);
@@ -27,7 +32,6 @@ export const createOrder = async (req: Request, res: Response): Promise<Response
     });
   }
 };
-
 
 export const getOrders = async (req: Request, res: Response): Promise<Response> => {
   try {
@@ -76,4 +80,3 @@ export const deleteOrder = async (req: Request, res: Response): Promise<Response
     });
   }
 };
-
