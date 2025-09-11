@@ -1,89 +1,92 @@
-🧪 Proyecto Final Backend - Integrador.4
 
-Este proyecto es parte del curso de desarrollo Full Stack en NUCBA. 
+## 🧪 Proyecto Final Backend - Integrador.4
+
+Este proyecto forma parte del curso de desarrollo Full Stack en NUCBA.  
 Consiste en una aplicación web funcional con frontend y backend desplegados, base de datos en la nube y simulación de envío de correos.
 
-🚀 Tecnologías utilizadas
+---
 
-- Frontend: React + Vite + Material UI + Emotion
-- Backend: Node.js + Express + TypeScript
-- Base de datos: PostgreSQL (Render)
-- ORM: Prisma
-- Mailtrap (simulación de envío de correos)
-- Autenticación: JWT
-- Deploy: Vercel (frontend) y Render (backend)
+## 🚀 Tecnologías utilizadas
 
-🌐 Accesos
-
-🔗 Frontend online: https://integrador-4-front.vercel.app/
-🔗 Backend online: https://integrador-4-back.onrender.com/
-📦 Repositorio Frontend: https://github.com/agustinbelisle/Integrador.4-Front
-🛠️ Repositorio Backend: https://github.com/agustinbelisle/Integrador.4-Back
-
-📬 Funcionalidades principales
-
-• Registro y login de usuarios
-• Visualización de productos
-• Carrito de compras para visitantes y usuarios logueados
-• Creación y gestión de órdenes de compra
-• Envío de confirmación por correo (Mailtrap)
-• Panel de administración con gestión de usuarios y roles
-
-
-🛒 Carrito de compras
-
-• El sistema permite agregar múltiples productos al carrito, tanto para usuarios logueados como visitantes.
-• Los usuarios pueden sumar, restar, eliminar y vaciar productos desde la interfaz.
-• El backend acepta un producto por petición (POST /api/cart/:userId), pero el frontend gestiona múltiples llamadas automáticamente.
-• La lógica está integrada con Redux, permitiendo persistencia local para visitantes y sincronización con la base de datos para usuarios autenticados.
-
-
-🔐 Registro y login de usuarios
-
-- El sistema permite crear cuentas nuevas mediante el endpoint `POST /api/auth/register`, validando nombre, email y contraseña.
-- Los usuarios pueden iniciar sesión con `POST /api/auth/login`, obteniendo un token JWT que habilita funciones protegidas como carrito persistente, órdenes y perfil.
-- El token se guarda en `localStorage` y se utiliza en los headers para autenticar cada acción.
-- La lógica de autenticación está integrada con Redux y permite navegación condicional según el estado de login.
+- **Frontend**: React + Vite + Material UI + Emotion  
+- **Backend**: Node.js + Express + TypeScript  
+- **Base de datos**: PostgreSQL (Render)  
+- **ORM**: Prisma  
+- **Autenticación**: JWT  
+- **Correo**: Mailtrap (simulación de envío)  
+- **Deploy**: Vercel (frontend) y Render (backend)
 
 ---
 
-📧 Envío de confirmación por correo
+## 🌐 Accesos
 
-- Al finalizar una compra, el sistema genera una orden y envía un correo de confirmación al usuario mediante Mailtrap.
-- El backend utiliza una función de envío conectada a Mailtrap, simulando el flujo real de email sin exponer datos sensibles.
-- El correo incluye detalles de la orden, productos comprados y estado inicial (`pendiente`).
-- Esta funcionalidad permite validar el flujo completo de compra y comunicación, como en un sistema de producción.
-
----
-
-🛠️ Panel de administración
-
-- Los usuarios con rol `admin` pueden acceder a endpoints protegidos para gestionar productos, órdenes y usuarios.
-- El backend valida el rol mediante el token JWT y restringe el acceso a funciones como `PUT /users/:id/role` o `DELETE /products/:id`.
-- El panel permite visualizar usuarios registrados, cambiar roles y administrar el catálogo de productos.
-- Esta funcionalidad demuestra control de permisos y estructura escalable para futuras extensiones.
-
-
-🧪 Testeo
-
-- Todos los endpoints fueron testeados manualmente y vía Postman.
-- El sistema permite registro, login, gestión de productos, carrito y órdenes.
-- Se validó el flujo completo de compra con token y persistencia.
+- 🔗 [Frontend online](https://integrador-4-front.vercel.app/)  
+- 🔗 [Backend online](https://integrador-4-back.onrender.com/)  
+- 📦 [Repositorio Frontend](https://github.com/agustinbelisle/Integrador.4-Front)  
+- 🛠️ [Repositorio Backend](https://github.com/agustinbelisle/Integrador.4-Back)
 
 ---
 
-📧 Envío de correos
+## 📬 Funcionalidades principales
 
-- Al generar una orden, se envía un correo de confirmación al usuario mediante Mailtrap.
-- El contenido incluye productos comprados, total y estado inicial.
+- Registro y login de usuarios  
+- Visualización de productos  
+- Carrito de compras para visitantes y usuarios logueados  
+- Creación y gestión de órdenes de compra  
+- Envío de confirmación por correo  
+- Panel de administración con gestión de usuarios y roles
 
 ---
 
-🔐 Seguridad
+## 🛒 Carrito de compras
 
-- Autenticación con JWT
-- Validación de roles (`user`, `admin`)
+- Permite agregar, modificar y eliminar productos, tanto para visitantes como usuarios autenticados.  
+- El backend acepta un producto por petición (`POST /api/cart/:userId`), mientras que el frontend gestiona múltiples llamadas.  
+- La lógica está integrada con Redux, con persistencia local para visitantes y sincronización con la base de datos para usuarios logueados.
+
+---
+
+## 🔐 Registro y login
+
+- Registro mediante `POST /api/auth/register`, con validación de nombre, email y contraseña.  
+- Login vía `POST /api/auth/login`, que retorna un token JWT para acceder a funcionalidades protegidas.  
+- El token se guarda en `localStorage` y se usa en los headers para autenticar cada acción.  
+- Redux gestiona el estado de autenticación y permite navegación condicional.
+
+---
+
+## 📧 Envío de correos
+
+- Al finalizar una compra, se genera una orden y se envía un correo de confirmación al usuario.  
+- El backend utiliza Mailtrap para simular el envío sin exponer datos reales.  
+- El correo incluye productos comprados, total y estado inicial (`pendiente`).  
+- Esta funcionalidad valida el flujo completo de compra y comunicación.
+
+---
+
+## 🛠️ Panel de administración
+
+- Acceso exclusivo para usuarios con rol `admin`.  
+- Permite gestionar productos, órdenes y usuarios mediante endpoints protegidos (`PUT /users/:id/role`, `DELETE /products/:id`, etc.).  
+- El backend valida el rol con JWT y restringe el acceso según permisos.  
+- El panel ofrece una estructura escalable para futuras funcionalidades.
+
+---
+
+## 🧪 Testeo
+
+- Todos los endpoints fueron testeados manualmente y con Postman.  
+- Se validó el flujo completo: registro, login, gestión de productos, carrito, órdenes y envío de correos.
+
+---
+
+## 🔐 Seguridad
+
+- Autenticación con JWT  
+- Validación de roles (`user`, `admin`)  
 - Protección de rutas sensibles
+
+---
 
 📡 Endpoints principales (Backend)
 
