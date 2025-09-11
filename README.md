@@ -87,27 +87,80 @@ Consiste en una aplicación web funcional con frontend y backend desplegados, ba
 
 📡 Endpoints principales (Backend)
 
-Método			             Ruta												Descripción												      Acceso
+## 🟢 Acceso Público
 
-GET									/api/products			  						Lista todos los productos								Público
-GET									/api/products/:id								Detalle de producto por ID							Público
-POST								/api/products			 						  Crea producto							  						Solo admin
-PUT									/api/products/:id								Actualiza producto											Solo admin
-DELETE							/api/products/:id								Elimina producto											  Solo admin
-POST								/api/auth/register							Registra nuevo usuario									Público
-POST								/api/auth/login									Inicia sesión							     				  Público
-POST								/api/cart/:userId								Agrega producto al carrito							Usuario
-POST								/api/orders/:userId							Finaliza compra y genera orden					Usuario
-GET									/api/orders/user/:id					  Lista órdenes del usuario								Usuario
-GET									/api/orders/:id									Detalle de orden						    				Usuario
-PUT									/api/orders/:id									Actualiza estado de orden								Solo admin
-DELETE							/api/orders/:id									Elimina orden													  Solo admin
-GET									/api/users										  Lista todos los usuarios								Solo admin
-GET									/api/users/:id									Ver perfil de usuario										Usuario
-POST								/api/users										  Crea usuario													  Público
-PUT									/api/users/:id									Actualiza perfil												Usuario
-DELETE							/api/users/:id									Elimina usuario													Solo admin
-PUT									/api/users/:id/role							Cambia rol de usuario										Solo admin
+**Método:** GET  
+**Ruta:** /api/products  
+**Descripción:** Lista todos los productos  
+
+**Método:** GET  
+**Ruta:** /api/products/:id  
+**Descripción:** Detalle de producto por ID  
+
+**Método:** POST  
+**Ruta:** /api/auth/login  
+**Descripción:** Inicia sesión  
+
+**Método:** POST  
+**Ruta:** /api/users  
+**Descripción:** Crea usuario  
+
+---
+
+## 🔵 Usuarios
+
+**Método:** POST  
+**Ruta:** /api/orders  
+**Descripción:** Agrega producto al carrito  
+
+**Método:** GET  
+**Ruta:** /api/orders  
+**Descripción:** Finaliza compra y genera orden  
+
+**Método:** GET  
+**Ruta:** /api/orders/:id  
+**Descripción:** Detalle de orden  
+
+**Método:** DELETE  
+**Ruta:** /api/orders/:id  
+**Descripción:** Elimina orden  
+
+**Método:** GET  
+**Ruta:** /api/users/:id  
+**Descripción:** Ver perfil de usuario  
+
+**Método:** PUT  
+**Ruta:** /api/users/:id  
+**Descripción:** Actualiza perfil  
+
+**Método:** DELETE  
+**Ruta:** /api/users/:id  
+**Descripción:** Elimina usuario  
+
+---
+
+## 🔴 Solo Admin
+
+**Método:** POST  
+**Ruta:** /api/products  
+**Descripción:** Crea producto  
+
+**Método:** PUT  
+**Ruta:** /api/products/:id  
+**Descripción:** Actualiza producto  
+
+**Método:** DELETE  
+**Ruta:** /api/products/:id  
+**Descripción:** Elimina producto  
+
+**Método:** GET  
+**Ruta:** /api/users  
+**Descripción:** Lista todos los usuarios  
+
+**Método:** PUT  
+**Ruta:** /api/users/:id/role  
+**Descripción:** Cambia rol de usuario  
+```
 
 
 🧪 Ejemplo de uso vía Postman
