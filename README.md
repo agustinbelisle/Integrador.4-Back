@@ -94,65 +94,87 @@ Consiste en una aplicación web funcional con frontend y backend desplegados, ba
 🟢 Acceso Público
 
 GET /api/products
+
 📌 Lista todos los productos
 
 GET /api/products/:id
+
 📌 Detalle de producto por ID
 
 POST /api/auth/register
+
 📌 Registro de usuario
 
 POST /api/auth/login
+
 📌 Inicia sesión
 
 POST /api/contact
+
 📌 Envía mensaje de contacto
 
 🔵 Usuarios (requieren login con token)
 
 POST /api/cart/:userId
+
 📌 Agrega producto al carrito
 
 GET /api/cart/:userId
+
 📌 Ver carrito del usuario
 
 PUT /api/cart/:userId
+
 📌 Actualiza cantidad de un producto en el carrito
 
 DELETE /api/cart/:userId/:productId
+
 📌 Elimina producto del carrito
 
 POST /api/orders/:userId
+
 📌 Finaliza compra y genera orden
 
 GET /api/orders/:id
+
 📌 Detalle de orden
 
 GET /api/users/:id
+
 📌 Ver perfil de usuario
 
 PUT /api/users/:id
+
 📌 Actualiza perfil
 
 DELETE /api/users/:id
+
 📌 Elimina usuario
 
 🔴 Solo Admin
 
 POST /api/products
+
 📌 Crea producto
 
 PUT /api/products/:id
+
 📌 Actualiza producto
 
 DELETE /api/products/:id
+
 📌 Elimina producto
 
 GET /api/users
+
 📌 Lista todos los usuarios
 
 PUT /api/users/:id/role
+
 📌 Cambia rol de usuario
+
+
+
 
 
 🧪 Ejemplo de uso vía Postman
