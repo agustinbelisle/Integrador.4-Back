@@ -174,7 +174,7 @@ PUT /api/users/:id/role
 📌 Cambia rol de usuario
 
 
-
+---
 
 
 🧪 Ejemplo de uso vía Postman
