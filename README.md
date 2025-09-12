@@ -88,13 +88,6 @@ Consiste en una aplicación web funcional con frontend y backend desplegados, ba
 
 ---
 
-📡 Endpoints principales (Backend)
-
-
-Perfecto, vamos a actualizar esta sección para que refleje fielmente los endpoints reales del backend según el README y los ejemplos de testeo. También vamos a corregir las rutas y descripciones que estaban desalineadas, y agregar los endpoints faltantes como los del carrito y contacto.
-
----
-
 ## 📡 Endpoints principales (Backend)
 
 ### 🟢 Acceso Público
@@ -132,7 +125,7 @@ Perfecto, vamos a actualizar esta sección para que refleje fielmente los endpoi
 **Descripción:** Ver carrito del usuario  
 
 **Método:** PUT  
-**Ruta:** `/api/cart/:userId`  
+**Ruta:** `/api/cart/item/:itemId`  
 **Descripción:** Actualiza cantidad de un producto en el carrito  
 
 **Método:** DELETE  
@@ -246,4 +239,41 @@ Body: vacío
 Header: mismo token
 
 Respuesta: orden generada con estado pendiente y total $1.009.999
+
+---
+
+🧑‍💻Login Admin
+POST https://integrador-4-back.onrender.com/api/auth/login/
+
+Body:
+
+{
+  "email": "admin@ecommerce.com",
+  "password": "Admin1234"
+}
+
+Respuesta:
+
+{
+    "user": {
+        "id": 1,
+        "name": "Agustín Admin",
+        "email": "admin@ecommerce.com",
+        "role": "admin"
+    },
+    "token": "..."
+}
+
+🆑 Eliminar orden
+
+DELETE https://integrador-4-back.onrender.com/api/orders/12
+
+Body: vacío
+
+Header: Authorization: Bearer <TOKEN>
+
+Respuesta:
+{
+    "message": "Orden eliminada correctamente"
+}
 

@@ -19,7 +19,7 @@ const asyncHandler = (fn: any) => (
 // Todas las rutas del carrito deben estar protegidas
 router.get('/:userId', isAuthenticated, asyncHandler(getCart));
 router.post('/:userId', isAuthenticated, asyncHandler(addToCart));
-router.put('/item/:itemId', isAuthenticated, asyncHandler(updateCartItem));
+router.put('/:userId/item/:itemId', isAuthenticated, asyncHandler(updateCartItem));
 router.delete('/item/:itemId', isAuthenticated, asyncHandler(removeFromCart));
 router.delete('/clear/:userId', isAuthenticated, asyncHandler(clearCart));
 
