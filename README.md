@@ -90,80 +90,69 @@ Consiste en una aplicación web funcional con frontend y backend desplegados, ba
 
 📡 Endpoints principales (Backend)
 
-## 🟢 Acceso Público
 
-**Método:** GET  
-**Ruta:** /api/products  
-**Descripción:** Lista todos los productos  
+🟢 Acceso Público
 
-**Método:** GET  
-**Ruta:** /api/products/:id  
-**Descripción:** Detalle de producto por ID  
+GET /api/products
+📌 Lista todos los productos
 
-**Método:** POST  
-**Ruta:** /api/auth/login  
-**Descripción:** Inicia sesión  
+GET /api/products/:id
+📌 Detalle de producto por ID
 
-**Método:** POST  
-**Ruta:** /api/users  
-**Descripción:** Crea usuario  
+POST /api/auth/register
+📌 Registro de usuario
 
----
+POST /api/auth/login
+📌 Inicia sesión
 
-## 🔵 Usuarios
+POST /api/contact
+📌 Envía mensaje de contacto
 
-**Método:** POST  
-**Ruta:** /api/orders  
-**Descripción:** Agrega producto al carrito  
+🔵 Usuarios (requieren login con token)
 
-**Método:** GET  
-**Ruta:** /api/orders  
-**Descripción:** Finaliza compra y genera orden  
+POST /api/cart/:userId
+📌 Agrega producto al carrito
 
-**Método:** GET  
-**Ruta:** /api/orders/:id  
-**Descripción:** Detalle de orden  
+GET /api/cart/:userId
+📌 Ver carrito del usuario
 
-**Método:** DELETE  
-**Ruta:** /api/orders/:id  
-**Descripción:** Elimina orden  
+PUT /api/cart/:userId
+📌 Actualiza cantidad de un producto en el carrito
 
-**Método:** GET  
-**Ruta:** /api/users/:id  
-**Descripción:** Ver perfil de usuario  
+DELETE /api/cart/:userId/:productId
+📌 Elimina producto del carrito
 
-**Método:** PUT  
-**Ruta:** /api/users/:id  
-**Descripción:** Actualiza perfil  
+POST /api/orders/:userId
+📌 Finaliza compra y genera orden
 
-**Método:** DELETE  
-**Ruta:** /api/users/:id  
-**Descripción:** Elimina usuario  
+GET /api/orders/:id
+📌 Detalle de orden
 
----
+GET /api/users/:id
+📌 Ver perfil de usuario
 
-## 🔴 Solo Admin
+PUT /api/users/:id
+📌 Actualiza perfil
 
-**Método:** POST  
-**Ruta:** /api/products  
-**Descripción:** Crea producto  
+DELETE /api/users/:id
+📌 Elimina usuario
 
-**Método:** PUT  
-**Ruta:** /api/products/:id  
-**Descripción:** Actualiza producto  
+🔴 Solo Admin
 
-**Método:** DELETE  
-**Ruta:** /api/products/:id  
-**Descripción:** Elimina producto  
+POST /api/products
+📌 Crea producto
 
-**Método:** GET  
-**Ruta:** /api/users  
-**Descripción:** Lista todos los usuarios  
+PUT /api/products/:id
+📌 Actualiza producto
 
-**Método:** PUT  
-**Ruta:** /api/users/:id/role  
-**Descripción:** Cambia rol de usuario  
-```
+DELETE /api/products/:id
+📌 Elimina producto
+
+GET /api/users
+📌 Lista todos los usuarios
+
+PUT /api/users/:id/role
+📌 Cambia rol de usuario
 
 
 🧪 Ejemplo de uso vía Postman
