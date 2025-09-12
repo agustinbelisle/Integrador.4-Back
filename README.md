@@ -91,91 +91,105 @@ Consiste en una aplicación web funcional con frontend y backend desplegados, ba
 📡 Endpoints principales (Backend)
 
 
-🟢 Acceso Público
-
-GET /api/products
-
-📌 Lista todos los productos
-
-GET /api/products/:id
-
-📌 Detalle de producto por ID
-
-POST /api/auth/register
-
-📌 Registro de usuario
-
-POST /api/auth/login
-
-📌 Inicia sesión
-
-POST /api/contact
-
-📌 Envía mensaje de contacto
-
-🔵 Usuarios (requieren login con token)
-
-POST /api/cart/:userId
-
-📌 Agrega producto al carrito
-
-GET /api/cart/:userId
-
-📌 Ver carrito del usuario
-
-PUT /api/cart/:userId
-
-📌 Actualiza cantidad de un producto en el carrito
-
-DELETE /api/cart/:userId/:productId
-
-📌 Elimina producto del carrito
-
-POST /api/orders/:userId
-
-📌 Finaliza compra y genera orden
-
-GET /api/orders/:id
-
-📌 Detalle de orden
-
-GET /api/users/:id
-
-📌 Ver perfil de usuario
-
-PUT /api/users/:id
-
-📌 Actualiza perfil
-
-DELETE /api/users/:id
-
-📌 Elimina usuario
-
-🔴 Solo Admin
-
-POST /api/products
-
-📌 Crea producto
-
-PUT /api/products/:id
-
-📌 Actualiza producto
-
-DELETE /api/products/:id
-
-📌 Elimina producto
-
-GET /api/users
-
-📌 Lista todos los usuarios
-
-PUT /api/users/:id/role
-
-📌 Cambia rol de usuario
-
+Perfecto, vamos a actualizar esta sección para que refleje fielmente los endpoints reales del backend según el README y los ejemplos de testeo. También vamos a corregir las rutas y descripciones que estaban desalineadas, y agregar los endpoints faltantes como los del carrito y contacto.
 
 ---
 
+## 📡 Endpoints principales (Backend)
+
+### 🟢 Acceso Público
+
+**Método:** GET  
+**Ruta:** `/api/products`  
+**Descripción:** Lista todos los productos  
+
+**Método:** GET  
+**Ruta:** `/api/products/:id`  
+**Descripción:** Detalle de producto por ID  
+
+**Método:** POST  
+**Ruta:** `/api/auth/register`  
+**Descripción:** Registro de usuario  
+
+**Método:** POST  
+**Ruta:** `/api/auth/login`  
+**Descripción:** Inicia sesión  
+
+**Método:** POST  
+**Ruta:** `/api/contact`  
+**Descripción:** Envía mensaje de contacto desde el formulario  
+
+---
+
+### 🔵 Usuarios (requieren login con token)
+
+**Método:** POST  
+**Ruta:** `/api/cart/:userId`  
+**Descripción:** Agrega producto al carrito  
+
+**Método:** GET  
+**Ruta:** `/api/cart/:userId`  
+**Descripción:** Ver carrito del usuario  
+
+**Método:** PUT  
+**Ruta:** `/api/cart/:userId`  
+**Descripción:** Actualiza cantidad de un producto en el carrito  
+
+**Método:** DELETE  
+**Ruta:** `/api/cart/:userId/:productId`  
+**Descripción:** Elimina producto del carrito  
+
+**Método:** POST  
+**Ruta:** `/api/orders/:userId`  
+**Descripción:** Finaliza compra y genera orden  
+
+**Método:** GET  
+**Ruta:** `/api/orders/:id`  
+**Descripción:** Detalle de orden  
+
+**Método:** DELETE  
+**Ruta:** `/api/orders/:id`  
+**Descripción:** Elimina orden  
+
+**Método:** GET  
+**Ruta:** `/api/users/:id`  
+**Descripción:** Ver perfil de usuario  
+
+**Método:** PUT  
+**Ruta:** `/api/users/:id`  
+**Descripción:** Actualiza perfil  
+
+**Método:** DELETE  
+**Ruta:** `/api/users/:id`  
+**Descripción:** Elimina usuario  
+
+---
+
+### 🔴 Solo Admin
+
+**Método:** POST  
+**Ruta:** `/api/products`  
+**Descripción:** Crea producto  
+
+**Método:** PUT  
+**Ruta:** `/api/products/:id`  
+**Descripción:** Actualiza producto  
+
+**Método:** DELETE  
+**Ruta:** `/api/products/:id`  
+**Descripción:** Elimina producto  
+
+**Método:** GET  
+**Ruta:** `/api/users`  
+**Descripción:** Lista todos los usuarios  
+
+**Método:** PUT  
+**Ruta:** `/api/users/:id/role`  
+**Descripción:** Cambia rol de usuario  
+
+---
+
+```
 
 🧪 Ejemplo de uso vía Postman
 
