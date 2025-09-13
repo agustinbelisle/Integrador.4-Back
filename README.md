@@ -183,7 +183,6 @@ Consiste en una aplicación web funcional con frontend y backend desplegados, ba
 
 ---
 
-```
 
 # 🧪 Ejemplo de uso vía Postman
 
@@ -270,7 +269,7 @@ Respuesta:
 
 { "message": "Mensaje enviado y guardado correctamente." }
 
-
+---
 
 ## 🔵 Usuario logueado (con token)
 
@@ -386,6 +385,7 @@ Respuesta:
   }
 }
 
+---
 
 ## 🔴 Admin
 
