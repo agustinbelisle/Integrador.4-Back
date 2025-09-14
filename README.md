@@ -194,15 +194,15 @@ Consiste en una aplicación web funcional con frontend y backend desplegados, ba
 
 ### 🔍 Listar productos
 
-
+```
 GET /api/products
 
 Respuesta: Array de productos con id, name, description, price, category, images.
-
+```
 
 ### 🔍 Detalle de producto
 
-
+```
 GET /api/products/4
 
 Respuesta:
@@ -214,11 +214,11 @@ Respuesta:
   "category": { "id": 5, "name": "Gaming" },
   "images": [ ... ]
 }
-
+```
 
 ### 📝 Registro
 
-
+```
 POST /api/auth/register
 
 Body:
@@ -235,11 +235,11 @@ Respuesta:
   "user": { "id": 7, "name": "Agustin", "role": "user" },
   "token": "..."
 }
-
+```
 
 ### 🔐 Login
 
-
+```
 POST /api/auth/login
 
 Body:
@@ -250,11 +250,11 @@ Body:
 }
 
 Respuesta: Token JWT + datos del usuario.
-
+```
 
 ### 📬 Contacto
 
-
+```
 POST /api/contact
 
 Body:
@@ -268,7 +268,7 @@ Body:
 Respuesta:
 
 { "message": "Mensaje enviado y guardado correctamente." }
-
+```
 ---
 
 ## 🔵 Usuario logueado (con token)
@@ -276,7 +276,7 @@ Respuesta:
 
 ### ➕ Agregar al carrito
 
-
+```
 POST /api/cart/7
 Authorization: Bearer <TOKEN>
 
@@ -286,20 +286,20 @@ Body:
 { "productId": 1 }
 
 Respuesta: Item agregado con quantity: 1, incluye datos del producto.
-
+```
 
 ### 👀 Ver carrito
 
-
+```
 GET /api/cart/7
 Authorization: Bearer <TOKEN>
 
 Respuesta: Array de ítems con product, quantity, selected.
-
+```
 
 ### 🔄 Actualizar cantidad
 
-
+```
 PUT /api/cart/7/item/34
 Authorization: Bearer <TOKEN>
 
@@ -310,22 +310,22 @@ Body:
 Respuesta:
 
 { "message": "Cantidad actualizada correctamente" }
-
+```
 
 ### ❌ Eliminar item
 
-
+```
 DELETE /api/cart/item/34
 Authorization: Bearer <TOKEN>
 
 Respuesta:
 
 { "message": "Item eliminado del carrito" }
-
+```
 
 ### 🧾 Generar orden
 
-
+```
 POST /api/orders/7
 Authorization: Bearer <TOKEN>
 
@@ -337,31 +337,31 @@ Respuesta:
   "status": "pendiente",
   "items": [ ... ]
 }
-
+```
 
 ### 📦 Detalle de orden
 
-
+```
 GET /api/orders/7
 Authorization: Bearer <TOKEN>
 
 Respuesta: Incluye items, status, payment, total.
-
+```
 
 ### 👤 Ver perfil
 
-
+```
 GET /api/users/7
 Authorization: Bearer <TOKEN>
 
 Respuesta:
 
 { "id": 7, "name": "Agustin", "email": "agustin@test.com", "role": "user" }
-
+```
 
 ### ✏️ Editar perfil
 
-
+```
 PUT /api/users/7  
 Authorization: Bearer <USER_TOKEN>
 
@@ -384,7 +384,7 @@ Respuesta:
     "role": "user"
   }
 }
-
+```
 ---
 
 ## 🔴 Admin
@@ -392,7 +392,7 @@ Respuesta:
 
 ### 🔐 Login Admin
 
-
+```
 POST /api/auth/login
 
 Body:
@@ -406,22 +406,22 @@ Body:
 Respuesta:
 
 { "user": { "id": 1, "role": "admin" }, "token": "..." }
-
+```
 
 ### 🆑 Eliminar orden
 
-
+```
 DELETE /api/orders/12
 Authorization: Bearer <ADMIN_TOKEN>
 
 Respuesta:
 
 { "message": "Orden eliminada correctamente" }
-
+```
 
 ### 🆕 Crear producto
 
-
+```
 POST /api/products  
 Authorization: Bearer <ADMIN_TOKEN>
 
@@ -443,11 +443,11 @@ Respuesta:
   "categoryId": 6,
   "createdAt": "2025-09-13T01:52:29.511Z"
 }
-
+```
 
 ### ✏️ Modificar producto
 
-
+```
 PUT /api/products/19  
 Authorization: Bearer <ADMIN_TOKEN>
 
@@ -470,22 +470,22 @@ Respuesta:
   "categoryId": 6,
   "createdAt": "2025-09-13T01:52:29.511Z"
 }
-
+```
 
 ### 🗑️ Eliminar producto
 
-
+```
 DELETE /api/products/19
 Authorization: Bearer <ADMIN_TOKEN>
 
 Respuesta:
 
 { "message": "Producto eliminado correctamente ✅" }
-
+```
 
 ### 👥 Listar usuarios
 
-
+```
 GET /api/users
 Authorization: Bearer <ADMIN_TOKEN>
 
@@ -498,11 +498,11 @@ Respuesta:
   { "id": 3, "name": "Carlos Ruiz", "email": "carlos@example.com", "role": "user" },
   ...
 ]
-
+```
 
 ### 🔄 Cambiar rol de usuario
 
-
+```
 PUT /api/users/7
 Authorization: Bearer <ADMIN_TOKEN>
 
@@ -521,15 +521,15 @@ Respuesta:
     "role": "admin"
   }
 }
-
+```
 
 ### 🗑️ Eliminar usuario
 
-
+```
 DELETE /api/users/8  
 Authorization: Bearer <ADMIN_TOKEN>
 
 Respuesta:
 
 { "message": "Usuario eliminado correctamente" }
-
+```
