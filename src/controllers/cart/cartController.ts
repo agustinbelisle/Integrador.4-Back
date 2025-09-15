@@ -5,7 +5,6 @@ export const getCart = async (req: Request, res: Response) => {
   const userId = +req.params.userId;
   const items = await cartService.getCartItemsByUser(userId);
 
-  // Normalizamos los items para que siempre tengan itemId
   const normalized = items.map((i) => ({
     itemId: i.id,
     quantity: i.quantity,
@@ -53,5 +52,3 @@ export const clearCart = async (req: Request, res: Response) => {
   await cartService.clearCart(userId);
   res.status(200).json({ message: 'Carrito vaciado correctamente' });
 };
-
-

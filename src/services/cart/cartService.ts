@@ -1,4 +1,3 @@
-// src/services/cart/cartService.ts
 import prisma from '../../config/prisma';
 
 /**
@@ -34,7 +33,7 @@ export const addToCart = async (
 
   return prisma.cartItem.upsert({
     where: {
-      userId_productId: { userId, productId } // clave compuesta única
+      userId_productId: { userId, productId } // clave compuesta
     },
     update: {
       quantity: { increment: quantity },
@@ -47,9 +46,7 @@ export const addToCart = async (
       selected,
     },
     include: {
-      product: {
-        include: { images: true }
-      }
+      product: { include: { images: true } }
     }
   });
 };
@@ -63,9 +60,7 @@ export const updateCartItem = async (itemId: number, quantity: number) => {
   return prisma.cartItem.update({
     where: { id: itemId },
     data: { quantity },
-    include: {
-      product: { include: { images: true } }
-    }
+    include: { product: { include: { images: true } } }
   });
 };
 
