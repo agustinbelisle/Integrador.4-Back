@@ -1,8 +1,8 @@
 import prisma from '../../config/prisma';
 
 /** Obtener todos los items seleccionados del carrito de un usuario */
-export const getCartItemsByUser = async (userId: number) => {
-  if (!userId) throw new Error("User ID es requerido");
+export const getCartItemsByUser  = async (userId: number) => {
+  if (!userId) throw new Error("User  ID es requerido");
   return prisma.cartItem.findMany({
     where: { userId, selected: true },
     include: { product: { include: { images: true } } },
@@ -30,6 +30,11 @@ export const addToCart = async (
 /** Actualizar la cantidad de un item existente */
 export const updateCartItem = async (itemId: number, quantity: number) => {
   if (!itemId || quantity < 0) throw new Error("Datos inválidos para actualizar item");
+  if (quantity === 0) {
+    // Eliminar el item si la cantidad es 0
+    await removeFromCart(itemId);
+    return null;
+  }
   return prisma.cartItem.update({
     where: { id: itemId },
     data: { quantity },
@@ -45,13 +50,13 @@ export const removeFromCart = async (itemId: number) => {
 
 /** Vaciar el carrito de un usuario */
 export const clearCart = async (userId: number) => {
-  if (!userId) throw new Error("User ID requerido para vaciar carrito");
+  if (!userId) throw new Error("User  ID requerido para vaciar carrito");
   return prisma.cartItem.deleteMany({ where: { userId } });
 };
 
 /** Deseleccionar todos los ítems del carrito */
 export const deselectAllCartItems = async (userId: number) => {
-  if (!userId) throw new Error("User ID requerido para deseleccionar ítems");
+  if (!userId) throw new Error("User  ID requerido para deseleccionar ítems");
   return prisma.cartItem.updateMany({
     where: { userId },
     data: { selected: false },
