@@ -4,7 +4,8 @@ import {
   addToCart,
   updateCartItem,
   removeFromCart,
-  clearCart
+  clearCart,
+  deselectCartItems
 } from '../../controllers/cart/cartController';
 import { isAuthenticated } from '../../middlewares/isAuthenticated';
 
@@ -20,6 +21,7 @@ const asyncHandler = (fn: any) => (
 router.get('/:userId', isAuthenticated, asyncHandler(getCart));
 router.post('/:userId', isAuthenticated, asyncHandler(addToCart));
 router.put('/:userId/item/:itemId', isAuthenticated, asyncHandler(updateCartItem));
+router.put('/deselect/:userId', isAuthenticated, asyncHandler(deselectCartItems));
 router.delete('/item/:itemId', isAuthenticated, asyncHandler(removeFromCart));
 router.delete('/clear/:userId', isAuthenticated, asyncHandler(clearCart));
 

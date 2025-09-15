@@ -4,13 +4,11 @@ import * as cartService from '../../services/cart/cartService';
 export const getCart = async (req: Request, res: Response) => {
   const userId = +req.params.userId;
   const items = await cartService.getCartItemsByUser(userId);
-
   const normalized = items.map((i) => ({
     itemId: i.id,
     quantity: i.quantity,
     product: i.product,
   }));
-
   res.json(normalized);
 };
 
@@ -18,7 +16,6 @@ export const addToCart = async (req: Request, res: Response) => {
   const userId = +req.params.userId;
   const { productId, quantity, selected = true } = req.body;
   const item = await cartService.addToCart(userId, productId, quantity, selected);
-
   res.status(201).json({
     itemId: item.id,
     quantity: item.quantity,
@@ -30,7 +27,6 @@ export const updateCartItem = async (req: Request, res: Response) => {
   const itemId = +req.params.itemId;
   const { quantity } = req.body;
   const updated = await cartService.updateCartItem(itemId, quantity);
-
   res.json({
     message: 'Cantidad actualizada correctamente',
     item: {
@@ -52,3 +48,10 @@ export const clearCart = async (req: Request, res: Response) => {
   await cartService.clearCart(userId);
   res.status(200).json({ message: 'Carrito vaciado correctamente' });
 };
+
+export const deselectCartItems = async (req: Request, res: Response) => {
+  const userId = +req.params.userId;
+  await cartService.deselectAllCartItems(userId);
+  res.status(200).json({ message: 'Ítems deseleccionados correctamente' });
+};
+
