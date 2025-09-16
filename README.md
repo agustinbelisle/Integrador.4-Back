@@ -412,7 +412,7 @@ Respuesta:
 { "user": { "id": 1, "role": "admin" }, "token": "..." }
 ```
 
-### 📝 Lista de ordenes
+### 📝 Lista de órdenes
 
 ```
 GET https://integrador-4-back.onrender.com/api/orders
@@ -433,6 +433,20 @@ Respuesta:
 
 { "message": "Orden eliminada correctamente" }
 ```
+
+### 🔍 Buscar orden
+
+```
+GET https://integrador-4-back.onrender.com/api/orders/12
+
+Respuesta:
+
+{
+    "message": "Orden no encontrada"
+}
+
+```
+
 
 ### 🆕 Crear producto
 

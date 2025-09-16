@@ -7,5 +7,5 @@ export const isAdmin = (req: Request, res: Response, next: NextFunction): void =
     return;
   }
 
-  next(); // Si es admin, continúa con la siguiente función
+  next(); 
 };

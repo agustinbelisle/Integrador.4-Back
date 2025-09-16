@@ -1,6 +1,6 @@
 // scripts/updatePassword.ts
 import bcrypt from 'bcrypt';
-import prisma from '../src/config/prisma'; // ajusta según tu estructura
+import prisma from '../src/config/prisma'; 
 
 async function updatePassword(email: string, newPassword: string) {
   try {
@@ -18,6 +18,6 @@ async function updatePassword(email: string, newPassword: string) {
 }
 
 const email = 'juan@example.com';
-const newPassword = '123456'; // o la que quieras asignar
+const newPassword = '123456'; 
 
 updatePassword(email, newPassword);

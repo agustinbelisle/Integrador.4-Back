@@ -25,7 +25,7 @@ export const sendOrderConfirmationEmail = async (
   to: string,
   orderId: number,
   total: number,
-  items: any[] // ⚡ puedes tipar con Prisma.OrderItem si querés
+  items: any[] 
 ): Promise<void> => {
   if (!to || !orderId || !total || !items) return;
 

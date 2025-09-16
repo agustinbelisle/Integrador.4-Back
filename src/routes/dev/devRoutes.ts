@@ -23,7 +23,7 @@ router.post('/seed', async (_req, res) => {
       data: {
         name: 'Agustín',
         email: 'agus@example.com',
-        password: '123456' // En producción, jamás sin hash
+        password: '123456' 
       }
     });
 

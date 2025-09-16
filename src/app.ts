@@ -9,7 +9,7 @@ import routes from './routes/index';
 import path from 'path';
 
 const app = express();
-app.set("trust proxy", true); // 👈 Habilita X-Forwarded-For en Render
+app.set("trust proxy", true); 
 
 // Parsear JSON
 app.use(express.json());
@@ -17,7 +17,7 @@ app.use(express.json());
 // --- Seguridad y CORS ---
 const allowedOrigins = [
   'http://localhost:5173',
-  /\.vercel\.app$/, // permite cualquier subdominio de Vercel
+  /\.vercel\.app$/, 
   'https://integrador-4-front.vercel.app'
 ];
 

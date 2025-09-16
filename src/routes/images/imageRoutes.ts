@@ -5,8 +5,7 @@ import {
   deleteImage
 } from '../../controllers/images/imageController';
 import { isAuthenticated } from '../../middlewares/isAuthenticated';
-// Opcional, si querés que solo admins puedan eliminar/crear imágenes:
-// import { isAdmin } from '../../middlewares/isAdmin';
+
 
 const router = express.Router();
 
