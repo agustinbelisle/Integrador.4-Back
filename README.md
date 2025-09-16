@@ -416,6 +416,7 @@ Respuesta:
 
 ```
 GET /api/orders
+Authorization: Bearer <ADMIN_TOKEN>
 
 Respuesta:
 
@@ -438,6 +439,7 @@ Respuesta:
 
 ```
 GET /api/orders/12
+Authorization: Bearer <ADMIN_TOKEN>
 
 Respuesta:
 
