@@ -54,7 +54,7 @@ export const updateUser = async (req: Request, res: Response): Promise<Response>
 export const deleteUser = async (req: Request, res: Response): Promise<Response> => {
   try {
     await userService.deleteUser(+req.params.id);
-    return res.status(200).json({ message: 'Usuario eliminado correctamente' });
+    return res.status(200).json({ message: 'Usuario y sus órdenes eliminados correctamente' });
   } catch (error) {
     return res.status(500).json({ message: 'Error al eliminar usuario', error });
   }
@@ -79,3 +79,4 @@ export const changeUserRole = async (req: Request, res: Response): Promise<Respo
     return res.status(500).json({ message: 'Error al cambiar el rol del usuario', error });
   }
 };
+

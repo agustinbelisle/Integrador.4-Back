@@ -32,9 +32,7 @@ export const createOrderFromCart = async (userId: number) => {
         items: { create: orderItemsData },
       },
       include: {
-        items: {
-          include: { product: true },
-        },
+        items: { include: { product: true } },
       },
     });
 
@@ -48,11 +46,18 @@ export const getUserOrders = (userId: number) => {
   return prisma.order.findMany({
     where: { userId },
     include: {
-      items: {
-        include: {
-          product: true,
-        },
-      },
+      items: { include: { product: true } },
+      payment: true,
+    },
+    orderBy: { createdAt: 'desc' },
+  });
+};
+
+export const getAllOrders = () => {
+  return prisma.order.findMany({
+    include: {
+      user: true,
+      items: { include: { product: true } },
       payment: true,
     },
     orderBy: { createdAt: 'desc' },
@@ -63,11 +68,7 @@ export const getOrderById = (id: number) => {
   return prisma.order.findUnique({
     where: { id },
     include: {
-      items: {
-        include: {
-          product: true,
-        },
-      },
+      items: { include: { product: true } },
       payment: true,
     },
   });
@@ -81,6 +82,8 @@ export const updateOrderStatus = (id: number, status: string) => {
 };
 
 export const deleteOrder = async (orderId: number) => {
+  // eliminar primero pagos e items
+  await prisma.payment.deleteMany({ where: { orderId } });
   await prisma.orderItem.deleteMany({ where: { orderId } });
   return prisma.order.delete({ where: { id: orderId } });
 };

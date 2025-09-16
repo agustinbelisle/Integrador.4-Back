@@ -1,8 +1,8 @@
-// src/routes/orders/orderRoutes.ts
 import express from 'express';
 import {
   createOrder,
   getOrders,
+  getAllOrders,
   getOrder,
   updateOrderStatus,
   deleteOrder
@@ -18,19 +18,22 @@ const asyncHandler = (fn: any) => (
   next: express.NextFunction
 ) => Promise.resolve(fn(req, res, next)).catch(next);
 
-// 👉 Crear orden (solo usuario autenticado)
+// Crear orden (solo usuario autenticado)
 router.post('/:userId', isAuthenticated, asyncHandler(createOrder));
 
-// 👉 Obtener órdenes de un usuario (usuario autenticado)
+// Obtener órdenes de un usuario
 router.get('/user/:userId', isAuthenticated, asyncHandler(getOrders));
 
-// 👉 Obtener orden por ID (usuario autenticado)
+// Obtener todas las órdenes (admin)
+router.get('/', isAuthenticated, isAdmin, asyncHandler(getAllOrders));
+
+// Obtener orden por ID
 router.get('/:id', isAuthenticated, asyncHandler(getOrder));
 
-// 👉 Actualizar estado de orden (solo admin)
+// Actualizar estado de orden (admin)
 router.put('/:id', isAuthenticated, isAdmin, asyncHandler(updateOrderStatus));
 
-// DELETE orden: restringido para admin
+// Eliminar orden (admin)
 router.delete('/:id', isAuthenticated, isAdmin, asyncHandler(deleteOrder));
 
 export default router;

@@ -4,28 +4,24 @@ import { sendOrderConfirmationEmail } from '../../services/emailService';
 
 export const createOrder = async (req: Request, res: Response): Promise<Response> => {
   try {
-    console.log("User ID recibido:", req.params.userId);
     const userId = Number(req.params.userId);
     if (isNaN(userId) || userId <= 0) {
       return res.status(400).json({ message: 'ID de usuario inválido' });
     }
 
     const order = await orderService.createOrderFromCart(userId);
-    console.log("Orden creada:", order);
 
     if (req.user?.email) {
-      console.log("Enviando email a:", req.user.email);
       await sendOrderConfirmationEmail(
         req.user.email,
         order.id,
         order.total,
-        order.items // 👈 ahora pasamos los productos
+        order.items
       );
     }
 
     return res.status(201).json(order);
   } catch (error: any) {
-    console.error('Error en createOrder:', error);
     return res.status(500).json({
       message: 'Error al crear la orden',
       error: error.message || 'Error desconocido',
@@ -40,6 +36,15 @@ export const getOrders = async (req: Request, res: Response): Promise<Response> 
     return res.json(orders);
   } catch (error) {
     return res.status(500).json({ message: 'Error al obtener órdenes', error });
+  }
+};
+
+export const getAllOrders = async (_req: Request, res: Response): Promise<Response> => {
+  try {
+    const orders = await orderService.getAllOrders();
+    return res.json(orders);
+  } catch (error) {
+    return res.status(500).json({ message: 'Error al obtener todas las órdenes', error });
   }
 };
 
@@ -73,7 +78,6 @@ export const deleteOrder = async (req: Request, res: Response): Promise<Response
     await orderService.deleteOrder(orderId);
     return res.json({ message: 'Orden eliminada correctamente' });
   } catch (error: any) {
-    console.error('Error eliminando orden:', error);
     return res.status(500).json({
       message: 'Error al eliminar la orden',
       error: error.message || 'Error desconocido',

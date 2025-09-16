@@ -28,10 +28,10 @@ router.get('/:id', isAuthenticated, asyncHandler(getUserById));
 // Registro público
 router.post('/', asyncHandler(createUser));
 
-// Actualizar: autenticado, idealmente validar que solo actualice su perfil o admin
+// Actualizar: autenticado
 router.put('/:id', isAuthenticated, asyncHandler(updateUser));
 
-// Borrar: solo admin
+// Borrar: solo admin (también borra órdenes del usuario)
 router.delete('/:id', isAuthenticated, isAdmin, asyncHandler(deleteUser));
 
 // Cambiar rol: solo admin
