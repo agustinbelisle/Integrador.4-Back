@@ -415,7 +415,7 @@ Respuesta:
 ### 📝 Lista de órdenes
 
 ```
-GET https://integrador-4-back.onrender.com/api/orders
+GET /api/orders
 
 Respuesta:
 
@@ -437,7 +437,7 @@ Respuesta:
 ### 🔍 Buscar orden
 
 ```
-GET https://integrador-4-back.onrender.com/api/orders/12
+GET /api/orders/12
 
 Respuesta:
 
