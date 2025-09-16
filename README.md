@@ -165,6 +165,10 @@ Consiste en una aplicación web funcional con frontend y backend desplegados, ba
 **Ruta:** `/api/products/:id`  
 **Descripción:** Elimina producto  
 
+**Método:** GET  
+**Ruta:** `/api/orders`  
+**Descripción:** Lista todas las órdenes
+
 **Método:** DELETE  
 **Ruta:** `/api/orders/:id`  
 **Descripción:** Elimina orden  
@@ -408,6 +412,17 @@ Respuesta:
 { "user": { "id": 1, "role": "admin" }, "token": "..." }
 ```
 
+### 📝 Lista de ordenes
+
+```
+GET https://integrador-4-back.onrender.com/api/orders
+
+Respuesta:
+
+Array con descripción de cada orden, y su respectivo user e items.
+
+```
+
 ### 🆑 Eliminar orden
 
 ```
@@ -523,7 +538,7 @@ Respuesta:
 }
 ```
 
-### 🗑️ Eliminar usuario
+### ⏏️ Eliminar usuario
 
 ```
 DELETE /api/users/8  
