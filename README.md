@@ -27,6 +27,35 @@ Consiste en una aplicación web funcional con frontend y backend desplegados, ba
 
 ---
 
+## ⚙️ Variables de entorno utilizadas
+
+### 🔧 Backend (Render)
+
+Estas variables están configuradas en Render para el proyecto `Integrador.4-Back`. No se incluyen valores sensibles, solo los nombres y su propósito:
+
+- `DATABASE_URL`: URL de conexión a la base de datos PostgreSQL.
+- `JWT_SECRET`: Clave secreta para la generación y verificación de tokens JWT.
+- `EMAIL_USER`: Usuario del servicio de envío de correos (SMTP o Mailtrap).
+- `EMAIL_PASS`: Contraseña del servicio de envío de correos.
+- `EMAIL_TO`: Dirección de correo destino para pruebas o notificaciones.
+- `MAILTRAP_USER`: Usuario de Mailtrap para pruebas de envío de emails.
+- `MAILTRAP_PASS`: Contraseña de Mailtrap.
+- `SMTP_HOST`: Host del servidor SMTP utilizado para enviar correos.
+- `SMTP_PORT`: Puerto del servidor SMTP.
+- `SMTP_USER`: Usuario del servidor SMTP.
+- `SMTP_PASS`: Contraseña del servidor SMTP.
+
+### 🌐 Frontend (Vercel)
+
+Estas variables están configuradas en Vercel para el proyecto `integrador-4-front`:
+
+- `VITE_IMAGE_BASE_URL`: URL base para acceder a las imágenes (por ejemplo, desde Cloudinary).
+- `VITE_API_BASE_URL`: URL base para realizar peticiones al backend desplegado en Render.
+
+> 🔒 **Nota**: Los valores reales no se incluyen por seguridad. Si se desea ejecutar el proyecto localmente, se deben configurar estas variables en un archivo `.env`.
+
+---
+
 ## 📬 Funcionalidades principales
 
 - Registro y login de usuarios  
